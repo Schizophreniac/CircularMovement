@@ -85,13 +85,18 @@ export class Body {
     this.x = this.centerX + x;
     this.y = this.centerY + y;
   }
-  // nextFrame() {
-  //   this.angle += this.angularVelocity;
-  //   let x = Math.cos(this.angle) * this.movementRadius;
-  //   let y = Math.sin(this.angle) * this.movementRadius;
-  //   this.x = this.centerX + x;
-  //   this.y = this.centerY + y;
-  // }
+
+  /**
+   * Update a body to the next frame position.
+   * Use with requestAnimationFrame.
+  */
+  nextFrame() {
+    this.angle += this.angularVelocity;
+    let x = Math.cos(this.angle) * this.movementRadius;
+    let y = Math.sin(this.angle) * this.movementRadius;
+    this.x = this.centerX + x;
+    this.y = this.centerY + y;
+  }
 
   /**
    * Start a circular moving around the center.
@@ -105,6 +110,7 @@ export class Body {
       this.moveTo(x, y);
     }, 10);
   }
+
   /**
    * Stop moving in last point.
    */
